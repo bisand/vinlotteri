@@ -1,0 +1,2 @@
+# vinlotteri
+Wine lottery application
