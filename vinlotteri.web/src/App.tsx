@@ -1,32 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import React, { Component, Suspense } from 'react';
+import { Link, BrowserRouter as Router, Route, Routes, createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
+import About from './components/About';
+import Contact from './components/Contact';
+import ErrorPage from './components/ErrorPage';
+import Home from './components/Home';
+import { Layout } from './components/Layout';
+import NotFound from './components/NotFound';
 
-function App() {
-  return (
-    <React.StrictMode>
-      <header id="root_header">
-        <h1>Vinlotteri</h1>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/blog">Blog</a>
-          <a href="/notes">Notes</a>
-          <a href="/guestbook">Guestbook</a>
-          <a href="/contact">Contact</a>
-        </nav>
-      </header>
+export default class App extends Component {
+  static displayName = App.name;
 
-      <main id="root_main">
-        <p>This is my new website and it's using Simple.css. It's really cool. If you want to use it too, you can <a href="https://simplecss.org">visit their site</a>.</p>
-      </main>
+  constructor(props: Record<string, unknown>) {
+    super(props);
+    this.state = { symbol: '' };
+  }
 
-      <footer id="root_footer">
-        <p>Vinlotteri.com</p>
-      </footer>
-    </React.StrictMode>
-  );
+  render() {
+    const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+        errorElement: <ErrorPage />,
+      },
+    ]);
+
+    return (
+      <React.StrictMode>
+        <Layout>
+          <RouterProvider router={router} />
+        </Layout>
+      </React.StrictMode>
+    );
+  }
 }
-
-export default App;
