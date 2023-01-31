@@ -1,17 +1,18 @@
+import React, { Component } from 'react'
 import { Footer } from './Footer'
 import { Header } from './Header'
-import React, { Component } from 'react'
+import { Outlet } from 'react-router-dom'
 
 export class Layout extends Component<any, any> {
     render() {
         return (
-            <React.Fragment>
+            <>
                 <Header />
                 <main>
-                    {this.props.children}
+                    <Outlet />
                 </main>
                 <Footer />
-            </React.Fragment>
+            </>
         )
     }
 }

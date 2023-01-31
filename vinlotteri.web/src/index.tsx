@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import About from './components/About';
-import ErrorPage from './components/ErrorPage';
-import Home from './components/Home';
-import { Layout } from './components/Layout';
-import NotFound from './components/NotFound';
 import reportWebVitals from './reportWebVitals';
 
 

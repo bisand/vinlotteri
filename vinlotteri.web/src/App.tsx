@@ -1,5 +1,5 @@
-import React, { Component, Suspense } from 'react';
-import { Link, BrowserRouter as Router, Route, Routes, createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
+import React, { Component } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import About from './components/About';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
@@ -18,27 +18,35 @@ export default class App extends Component {
   render() {
     const router = createBrowserRouter([
       {
+        element: <Layout />,
         path: "/",
-        element: <Home />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "*",
-        element: <NotFound />,
-        errorElement: <ErrorPage />,
-      },
-    ]);
+        children: [
+          {
+            index: true,
+            element: <Home />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/about",
+            element: <About />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/contact",
+            element: <Contact />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
+            errorElement: <ErrorPage />,
+          },
+        ]
+      }]);
 
     return (
       <React.StrictMode>
-        <Layout>
-          <RouterProvider router={router} />
-        </Layout>
+        <RouterProvider router={router}></RouterProvider>
       </React.StrictMode>
     );
   }
