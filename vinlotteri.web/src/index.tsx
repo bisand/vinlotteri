@@ -3,13 +3,38 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Header from './Header';
+import Footer from './Footer';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+const root_header = ReactDOM.createRoot(
+  document.getElementById('root_header') as HTMLElement
 );
-root.render(
+root_header.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+const root_main = ReactDOM.createRoot(
+  document.getElementById('root_main') as HTMLElement
+);
+root_main.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+const root_footer = ReactDOM.createRoot(
+  document.getElementById('root_footer') as HTMLElement
+);
+root_footer.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Footer />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
