@@ -4,6 +4,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
 import Home from './components/Home';
+import LayoutAdmin from './components/LayoutAdmin';
 import { LayoutMain } from './components/LayoutMain';
 import NotFound from './components/NotFound';
 
@@ -27,12 +28,12 @@ export default class App extends Component {
             errorElement: <ErrorPage />,
           },
           {
-            path: "/about",
+            path: "about",
             element: <About />,
             errorElement: <ErrorPage />,
           },
           {
-            path: "/contact",
+            path: "contact",
             element: <Contact />,
             errorElement: <ErrorPage />,
           },
@@ -42,7 +43,34 @@ export default class App extends Component {
             errorElement: <ErrorPage />,
           },
         ]
-      }]);
+      },
+      {
+        element: <LayoutAdmin />,
+        path: "/admin",
+        children: [
+          {
+            index: true,
+            element: <Home />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "about",
+            element: <About />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "contact",
+            element: <Contact />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
+            errorElement: <ErrorPage />,
+          },
+        ]
+      }
+    ]);
 
     return (
       <React.StrictMode>

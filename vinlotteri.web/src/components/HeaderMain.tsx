@@ -7,12 +7,11 @@ export class HeaderMain extends Component {
             <header>
                 <h1>Vinlotteri</h1>
                 <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/blog">Blog</Link>
-                    <Link to="/notes">Notes</Link>
-                    <Link to="/guestbook">Guestbook</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/">Informasjon</Link>
+                    <Link to="/admin">Nytt lotteri</Link>
+                    <Link to="/blog">Lotterier</Link>
+                    <Link to="/notes">Profil</Link>
+                    <Link to="/guestbook">Hjelp</Link>
                 </nav>
             </header>
         )
