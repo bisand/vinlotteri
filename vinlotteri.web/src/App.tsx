@@ -4,7 +4,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
 import Home from './components/Home';
-import { Layout } from './components/Layout';
+import { LayoutMain } from './components/LayoutMain';
 import NotFound from './components/NotFound';
 
 export default class App extends Component {
@@ -18,7 +18,7 @@ export default class App extends Component {
   render() {
     const router = createBrowserRouter([
       {
-        element: <Layout />,
+        element: <LayoutMain />,
         path: "/",
         children: [
           {

@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-import { Footer } from './Footer'
-import { Header } from './Header'
+import { FooterMain } from './FooterMain'
+import { HeaderMain } from './HeaderMain'
 import { Outlet } from 'react-router-dom'
 
-export class Layout extends Component<any, any> {
+export class LayoutMain extends Component<any, any> {
     render() {
         return (
             <React.StrictMode>
-                <Header />
+                <HeaderMain />
                 <main>
                     <Outlet />
                 </main>
-                <Footer />
+                <FooterMain />
             </React.StrictMode>
         )
     }
 }
 
-export default Layout;
+export default LayoutMain;
