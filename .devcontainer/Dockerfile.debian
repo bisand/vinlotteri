@@ -40,7 +40,8 @@ RUN mkdir /commandhistory \
     && chown -R $USERNAME /commandhistory
 
 # Add MariaDB
-RUN apt-get install -y mariadb-server
+RUN apt-get install -y mariadb-server rabbitmq-server --fix-missing
+RUN rabbitmq-plugins enable --offline rabbitmq_management
 
 USER $USERNAME
 

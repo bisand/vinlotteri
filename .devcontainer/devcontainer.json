@@ -9,7 +9,12 @@
 		"context": ".."
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3306],
+	"forwardPorts": [
+		3306,
+		5672,
+		15671,
+		15672
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "dotnet restore",
 	// Configure tool-specific properties.
